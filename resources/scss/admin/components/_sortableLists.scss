@@ -1,0 +1,145 @@
+:root {
+
+}
+
+// Sortable handler
+.ui-sortable-handle {
+    cursor: grab;
+
+    td {
+        vertical-align: middle;
+    }
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    .sortableHandler {
+        color: #727cf5;
+        font-size: 15px;
+
+        svg {
+            margin-right: -2px;
+            margin-bottom: -2px;
+            font-size: 20px !important;
+        }
+    }
+
+    svg {
+        font-size: 20px !important;
+        margin-bottom: -2px !important;
+    }
+}
+
+.sortableLists,
+#s-l-base {
+    background: #FFF;
+    border: 1px solid #e8ebf1;
+    border-top: none;
+
+    .btn {
+        border-radius: 50% !important;
+        height: 30px !important;
+        width: 30px !important;
+
+        svg {
+            color: #FFF;
+            height: 12px !important;
+        }
+    }
+
+    li {
+        align-items: center;
+        border-top: 1px solid #e8ebf1 !important;
+
+        ul {
+            li {
+                div.pageElement {
+                    height: 45px;
+
+                    .pageTitle {
+                        padding-left: 50px;
+
+                        &:before {
+                            font-family: 'Font Awesome 5 Free';
+                            color: rgba(80, 97, 238, 0.55);
+                            content: "\f148";
+                            display: inline-block;
+                            vertical-align: middle;
+                            font-weight: 900;
+                            transform: rotate(90deg);
+                            margin-right: 10px;
+                            margin-top: 1px;
+                        }
+                    }
+                }
+            }
+            ul {
+                li {
+                    div.pageElement {
+                        .pageTitle {
+                            padding-left: 70px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.dragedElement {
+            background: #FFF;
+            border: 1px solid #e8ebf1;
+            cursor: move;
+            opacity: 0.65;
+        }
+
+        &.placeholderElement {
+            background: rgba(80, 97, 238, 0.55);
+        }
+
+        &.hintClass {
+            background: rgba(80, 97, 238, 0.15);
+        }
+
+        div.pageElement {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+
+            .sortableHandler {
+                align-items: center;
+                border-right: 1px solid #e8ebf1;
+                color: #5061EE;
+                cursor: move;
+                display: flex;
+                font-size: 20px;
+                height: 45px;
+                justify-content: center;
+                width: 40px;
+
+                svg {
+                    margin-right: 2px !important;
+                }
+
+            }
+
+            .pageTitle {
+                padding-left: 20px;
+            }
+
+            .actionHandler {
+                align-items: center;
+                border-left: 1px solid #e8ebf1;
+                cursor: move;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                height: 45px;
+                padding: 0 5px;
+                position: absolute;
+                    right: 0;
+                width: 80px;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@use '../abstracts/mixins' as *;
+
+:root {
+    --sm-size:  40px;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    li {
+        a {
+            align-items: center;
+            background-color: var(--clr-white-200);
+            border-radius: 50%;
+            color: var(--clr-primary-300);
+            display: flex;
+            justify-content: center;
+            height: var(--sm-size);
+            line-height: var(--sm-size);
+            position: relative;
+            transition: all .3s;
+            width: var(--sm-size);
+
+            &:hover {
+                background-color: var(--clr-primary-300);
+                color: var(--clr-white-200);
+            }
+        }
+    }
+}

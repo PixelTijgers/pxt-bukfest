@@ -1,0 +1,119 @@
+:root {
+
+}
+
+form.form-content {
+
+    .row {
+        > .form-label {
+            align-items: center;
+            display: flex;
+            margin-bottom: 0 !important;
+        }
+    }
+    .form-label {
+        span.required {
+            color: rgb(101, 113, 255);
+        }
+    }
+
+    .form-submit {
+        background: rgba(255, 255, 255, 0.75);
+        border-top: 1px solid #EEE;
+        display: flex;
+        height: 65px;
+        justify-content: flex-end;
+        padding: 15px;
+        position: fixed;
+            bottom: 0;
+            right: 0;
+        width: 100%;
+        z-index: 2;
+
+        button {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+
+    .form-control {
+        &:focus {
+            border-color: #6571ff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        }
+    }
+
+    .ck.ck-content {
+        height: 450px;
+        max-height: 750px;
+    }
+
+    // Bootstrap maxlength.
+    .bootstrap-maxlength {
+        width: 90% !important;
+        position: initial !important;
+        max-width: 75px !important;
+    }
+
+    // Tags.
+    div.tagsinput {
+        background-color: #ffffff;
+        border: 1px solid #E8EBF1;
+        border-radius: 2px;
+        color: #495057;
+        cursor: text;
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 400;
+        height: 40px !important;
+        line-height: 25px;
+        padding-top: 5px;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        width: 100%;
+
+        &:focus {
+            border-color: #6571ff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        }
+
+        span.tag {
+            background: #727CF5;
+            border: 0;
+            color: #FFF;
+            margin: 2px 5px 0 0 !important;
+            padding: 6px 14px;
+            font-size: .8125rem;
+            font-family: inherit;
+            line-height: 1;
+
+            a {
+                color: #FFF !important;
+                position: relative;
+                top: -1px;
+            }
+        }
+        input {
+            color: #495057;
+            margin-bottom: -2px !important;
+            width: 100px !important;
+        }
+
+        #meta_tags_tag {
+            font-size: 14px;
+            padding-left: 5px;
+        }
+    }
+
+    #nestedImages {
+        .slider-item {
+            .closeButton {
+                margin-right: 15px;
+            }
+            .btn-primary {
+                cursor: grab;
+            }
+        }
+    }
+}

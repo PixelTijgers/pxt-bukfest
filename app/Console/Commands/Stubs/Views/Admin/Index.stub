@@ -1,0 +1,61 @@
+@section('meta')
+    <title>{{ config('app.name') }} | {{crudName}}</title>
+@endsection
+
+@push('styles')
+@endpush
+
+@push('js')
+    {!! $html->scripts() !!}
+@endpush
+
+<x-admin>
+
+    @include('admin.layouts.page-head', [
+        'permission' => '{{crudNameSingularSnakeCase}}',
+        'title' => '{{crudName}}',
+        'breadcrum' => [
+        ],
+        'route' => (!@${{crudNameSingularSnakeCase}} ? '{{crudNameSingularSnakeCase}}.create' : null),
+        'label' => '[ ... ]',
+    ])
+
+<div class="{{ $cssNs }}">
+
+        <div class="row">
+
+            <div class="col-md-12 grid-margin stretch-card">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <h6 class="card-title">{{crudName}}</h6>
+                        <p class="card-description"> [ ... ] </p>
+
+                        @if(session('type'))
+                            <div class="alert alert-fill-{{ session('type') }} alert-dismissible fade show" role="alert">
+                                {{ session('message') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+
+                        <div class="table-responsive">
+
+                            {!! $html->table(['class' => 'table']) !!}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</x-admin>

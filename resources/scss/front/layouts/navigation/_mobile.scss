@@ -1,0 +1,35 @@
+:root {
+    // Mobile variables.
+    --mb-height: 60px;
+
+    // MBurger variables.
+    --mb-button-size: 60px;
+    --mb-bar-height: 3px;
+    --mb-bar-width: .4;
+    --mb-bar-spacing: 6px;
+
+}
+
+.front-layouts-navigation-Mobile {
+    background: var(--clr-white-100);
+    box-shadow: var(--shadow-primary);
+    height: var(--mb-height);
+    z-index: 1;
+
+    a {
+        &.brand-logo {
+            padding-left: 18px;
+
+            figure {
+                img {
+                    height: auto;
+                    width: 175px;
+                }
+            }
+        }
+
+        &.mburger {
+            color: var(--clr-secondary-300);
+        }
+    }
+}

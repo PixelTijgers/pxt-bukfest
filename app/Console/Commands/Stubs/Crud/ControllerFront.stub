@@ -1,0 +1,38 @@
+<?php
+
+// Controller namespacing.
+namespace App\Http\Controllers\Website;
+use App\Http\Controllers\Controller;
+
+// Models.
+use App\Models\{{crudName}};
+
+// Facades.
+
+// Other.
+use Carbon\Carbon;
+
+class {{crudName}}Controller extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        // Init view.
+        return view('website.modules.{{crudNameSingularSnakeCase}}.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show({{crudName}} ${{crudNameSingularSnakeCase}})
+    {
+        // Init view.
+        return view('website.modules.{{crudNameSingularSnakeCase}}.show', compact('{{crudNameSingularSnakeCase}}'));
+    }
+}

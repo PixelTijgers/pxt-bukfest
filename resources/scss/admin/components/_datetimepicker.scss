@@ -1,0 +1,278 @@
+:root {
+
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before,
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+    display: none !important;
+}
+
+// Datepicker
+.bootstrap-datetimepicker-widget {
+
+    .datepicker {
+        & > div {
+            white-space: normal !important;
+        }
+    }
+    &.dropdown-menu {
+        padding: 10px;
+        height: 320px;
+        width: 320px;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+
+        &.timepicker-sbs {
+            width: 600px;
+        }
+
+        &.bottom {
+            &:before {
+                border-bottom: 7px solid #e8ebf1;
+                border-bottom-color: #e8ebf1;
+            }
+        }
+    }
+
+    .timepicker-picker {
+        position: relative;
+        top: 30%;
+
+        .table-condensed {
+            a {
+                font-size: 20px;
+            }
+
+            .timepicker-hour,
+            .separator,
+            .timepicker-minute {
+                font-size: 25px;
+            }
+        }
+    }
+
+    .datepicker-months,
+    .datepicker-years,
+    .datepicker-decades {
+        span {
+            position: relative;
+
+            &:before {
+                content: "";
+                width: 38px;
+                height: 35px;
+                border-radius: 2px;
+                display: block;
+                vertical-align: middle;
+                position: absolute;
+                top: 6px;
+                margin: auto;
+                z-index: -1;
+                top: 9px;
+                right: 0;
+                left: -3px;
+            }
+
+            &.month,
+            &.year {
+                &:hover {
+                    color: #FFF;
+                    &:before {
+                        background: #727cf5;
+                        box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                        -webkit-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                        -moz-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    }
+                }
+            }
+
+            &.active {
+                background: transparent;
+                text-shadow: none;
+
+                &:before {
+                    background: #727cf5;
+                    color: #FFF !important;
+                    box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    -webkit-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    -moz-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                }
+            }
+        }
+    }
+
+    .datepicker-years,
+    .datepicker-decades {
+        span {
+            &:before {
+                width: 48px;
+                height: 45px;
+                top: 3px;
+            }
+        }
+    }
+
+    .timepicker-hours,
+    .timepicker-minutes{
+        position: relative;
+        top: 25%;
+
+        .hour {
+            font-size: 16px;
+            height: 35px !important;
+            line-height: 35px !important;
+        }
+        .hour,
+        .minute{
+            &:hover {
+                background: none;
+            }
+
+            &:before {
+                content: "";
+                width: 38px;
+                height: 35px;
+                border-radius: 2px;
+                display: block;
+                margin: auto;
+                vertical-align: middle;
+                position: absolute;
+                top: 6px;
+                z-index: -1;
+                left: 0;
+                right: 0;
+            }
+
+            &:hover {
+                background: transparent;
+                color: #FFF;
+
+                &:before {
+                    background: #727cf5;
+                    color: #FFF !important;
+                    box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    -webkit-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    -moz-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    top: 0px;
+                }
+            }
+        }
+
+        .minute {
+            font-size: 16px;
+
+            &:before {
+                width: 57px;
+                height: 54px;
+                top: 0;
+            }
+        }
+    }
+
+    table {
+        //margin-top: -30px;
+
+        thead {
+            tr{
+                th {
+                    border-bottom-width: 0;
+
+                    &:hover {
+                        background: transparent !important;
+                    }
+
+                    &.prev,
+                    &.next{
+                        color: #000;
+                        padding-bottom: 1rem;
+                        padding-top: 1rem;
+                        background: #ffffff;
+                    }
+                    &.picker-switch {
+                        color: #000;
+                        background: #ffffff;
+                        padding-bottom: 1rem;
+                        padding-top: 1rem;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        }
+
+        td {
+            border: none !important;
+            position: relative;
+
+            span {
+                &:hover {
+                    background: transparent;
+                }
+            }
+
+            &.day {
+                font-size: 0.9375rem;
+                padding: 0.5rem 0.45rem;
+                cursor: pointer;
+
+                &:before {
+                    border-bottom-color: transparent;
+                    content: "";
+                    width: 28px;
+                    height: 25px;
+                    border-radius: 2px;
+                    display: block;
+                    margin: auto;
+                    vertical-align: middle;
+                    position: absolute;
+                    top: 6px;
+                    z-index: -1;
+                    left: 0;
+                    right: 0;
+                }
+
+                &:hover {
+                    background: transparent;
+                    color: #FFF;
+
+                    &:before {
+                        background: #727cf5;
+                        color: #FFF !important;
+                        box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                        -webkit-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                        -moz-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                        top: 5px;
+                    }
+                }
+            }
+            &.today {
+                background: transparent;
+                color: #FFF;
+
+                &:before {
+                    background: rgba(114, 124, 245, 0.5);
+                    color: #FFF;
+                    box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    -webkit-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    -moz-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    top: 4px;
+                    border-bottom-color: transparent !important;
+                }
+            }
+            &.active {
+                background-color: transparent;
+                color: #FFF;
+                text-shadow: none;
+
+                &:before {
+                    background: #727cf5;
+                    color: #FFF;
+                    box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    -webkit-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    -moz-box-shadow: 3px 3px 6px 0 rgba(147, 127, 201, 0.2);
+                    top: 5px;
+                }
+            }
+        }
+    }
+}

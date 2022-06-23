@@ -1,0 +1,95 @@
+:root {
+
+}
+
+.table > :not(:first-child) {
+    border: none;
+}
+
+// Datatables.
+.table-responsive {
+    overflow: hidden;
+
+    .table-striped > tbody > tr:nth-of-type(2n+1),
+    .table-striped > tbody > tr {
+        border: transparent !important
+    }
+
+    & > :not(:first-child) {
+        border: none;
+    }
+
+    .actionHandler {
+        width: 70px !important;
+    }
+    .published {
+        width: 40px !important;
+    }
+    .download {
+        width: 40px !important;
+    }
+    .btn {
+        border-radius: 50% !important;
+        margin-right: 5px !important;
+        height: 30px !important;
+        width: 30px !important;
+
+        svg {
+            color: #FFF;
+            height: 12px !important;
+        }
+    }
+
+    .dataTables_wrapper.dt-bootstrap4 {
+        .dataTables_length {
+            select {
+                width: 50px !important;
+            }
+        }
+    }
+    .col-sm-12 {
+        padding-left: 0 !important;
+
+        .dataTable {
+            margin-bottom: 25px !important;
+
+            th,
+            td {
+                padding-top: 8px !important;
+                padding-bottom: 8px !important;
+                vertical-align: baseline;
+
+                .btn {
+                    border-radius: 50% !important;
+                    margin-right: 5px !important;
+                    height: 30px !important;
+                    width: 30px !important;
+
+                    svg {
+                        color: #FFF;
+                        height: 12px !important;
+                    }
+                }
+
+                .btn-primary {
+                    align-items: center;
+                    border-radius: 5px !important;
+                    display: flex;
+                    height: 25px !important;
+                    justify-content: center;
+                    width: 40px !important;
+                }
+            }
+        }
+
+        ul.pagination {
+            font-size: 12px !important;
+        }
+    }
+
+    .sortable-ui {
+        tr {
+            border-bottom: 1px solid #EEE;
+        }
+    }
+}

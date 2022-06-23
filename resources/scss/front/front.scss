@@ -1,0 +1,78 @@
+// Import ultilities.
+@use './abstracts/' as *;
+@use './components/' as *;
+@use './layouts/' as *;
+@use './mixins/' as *;
+@use './modules/' as *;
+@use './plugins/' as *;
+
+// Import Tailwind.
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Default Styles
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    outline: none;
+}
+
+body {
+    background: var(--clr-primary-300);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ff-base);
+    font-size: 14px;
+    min-height: 100vh;
+
+    #page-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--clr-primary-300);
+        font-family: var(--ff-head);
+        font-weight: 900;
+    }
+
+    main {
+        flex: 1;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--clr-primary-300);
+            font-family: var(--ff-head);
+            font-weight: 900;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        p {
+
+        }
+    }
+
+    footer {
+    }
+}

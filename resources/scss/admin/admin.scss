@@ -1,0 +1,35 @@
+// Import ultilities.
+@use './components' as *;
+@use './modules' as *;
+@use './layouts' as *;
+
+// Overwrite Template styles.
+.navbar {
+    z-index: 1050;
+}
+
+.cookie-consent {
+    display: none;
+}
+
+// Default styles.
+a {
+    transition: all 0.15s ease-in 0s !important;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+        padding: 0;
+    }
+}
+
+textarea {
+    height: 150px !important;
+    resize: none !important;
+    line-height: 150% !important;
+    word-spacing: 2px !important;
+}

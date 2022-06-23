@@ -1,0 +1,78 @@
+@mixin hoverTransition($value, $transition) {
+    transition: all $value $transition 0s;
+}
+
+@mixin hover($duration) {
+    -webkit-transition: all $duration;
+    -moz-transition: all $duration;
+    -ms-transition: all $duration;
+    -o-transition: all $duration;
+    transition: all $duration;
+}
+
+@mixin scale ($scale) {
+    -webkit-transform: scale($scale);
+    -moz-transform: scale($scale);
+    -ms-transform: scale($scale);
+    -o-transform: scale($scale);
+    transform: scale($scale);
+}
+
+@mixin hoverStroke($background) {
+    @include hoverTransition(.15s, ease-in-out);
+
+    position: relative;
+
+    &:after {
+        @include hoverTransition(.15s, ease-in-out);
+
+        background: $background;
+        color: transparent;
+        content: '.';
+        height: 4px;
+        margin: auto;
+        position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        width: 0%;
+    }
+
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+}
+
+@mixin socialHover() {
+    @include hover(.5s);
+
+    &:hover {
+        background: var(--clr-primary-300);
+        color: var(--clr-white-100);
+
+        &:after {
+            opacity: 1;
+
+            @include scale(1);
+        }
+    }
+
+    &::after {
+        box-sizing: content-box;
+        box-shadow: 0 0 0 3px var(--clr-primary-300);
+        border-radius: 50%;
+        content: '';
+        height: 100%;
+        opacity: 0;
+        padding: 3px;
+        position: absolute;
+            top: -3px;
+            left: -3px;
+        width: 100%;
+
+        @include scale(.8);
+        @include hover(.5s);
+    }
+}

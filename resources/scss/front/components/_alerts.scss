@@ -1,0 +1,29 @@
+:root {
+
+}
+
+.alert {
+    border-radius: .25rem;
+    box-shadow: rgba(37, 47, 63, 0.1) 0px 4px 10px 0px;
+    color: #FFF;
+    font-size: 16px;
+    padding: 1rem;
+    margin-bottom: 30px;
+    width: 100%;
+
+    &.alert-success {
+        border-color: #05a34a;
+        background: rgb(5, 163, 74);
+    }
+
+    &.alert-danger {
+        border-color: #F6404F;
+        background: #F6404F;
+    }
+}
+
+label.error-message {
+    color: #F6404F !important;
+    font-size: 12px !important;
+    margin-top: -10px !important;
+}

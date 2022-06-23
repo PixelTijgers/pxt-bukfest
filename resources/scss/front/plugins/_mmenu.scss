@@ -1,0 +1,52 @@
+// Overwrite the root variables.
+:root {
+    // Mmenu variables
+    --mm-color-background: var(--clr-white-100);
+    --mm-color-border: #EEE;
+    --mm-color-text: var(--clr-primary-300);
+    --mm-color-text-dimmed: var(--clr-primary-300);
+    --mm-color-button: var(--clr-secondary-300);
+}
+
+// Hide Mmenu on desktop when the page is loading.
+#mobile-menu:not(.mm-menu) {
+    display: none;
+}
+
+.mm-wrapper {
+    .mm-menu {
+        .mm-panels {
+            .mm-panel {
+                background: var(--clr-white-100);
+
+                .mm-navbar {
+                    background: var(--clr-white-100);
+
+                    .mm-navbar__title {
+                        span {
+                            color: var(--clr-primary-300);
+                            font-family: var(--ff-head);
+                            font-size: 24px;
+                            font-weight: 900;
+                        }
+                    }
+                }
+                .mm-listview {
+                    font-family: var(--ff-head);
+                    font-size: 18px;
+                    font-weight: 900;
+
+                    .mm-listitem {
+                        a {
+                            color: var(--clr-primary-300);
+                        }
+
+                        &:after {
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

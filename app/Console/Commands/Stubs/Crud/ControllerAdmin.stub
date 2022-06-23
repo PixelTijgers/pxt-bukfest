@@ -1,0 +1,192 @@
+<?php
+
+// Controller namespacing.
+namespace App\Http\Controllers\Admin\Modules;
+use App\Http\Controllers\Controller;
+
+// Facades.
+use Yajra\Datatables\Datatables;
+use Yajra\DataTables\Html\Builder;
+
+// Models.
+use App\Models\{{crudName}};
+
+// Request
+use App\Http\Requests\{{crudName}}Request;
+
+// Traits
+use App\Traits\DataTableActionsTrait;
+use App\Traits\HasRightsTrait;
+use App\Traits\MediaHandlerTrait;
+
+class {{crudName}}Controller extends Controller
+{
+    use DataTableActionsTrait;
+    use HasRightsTrait;
+    use MediaHandlerTrait;
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Builder $builder)
+    {
+        // Init datatables.
+        if (request()->ajax()) {
+            return DataTables::of({{crudName}}::query())
+            ->editColumn('created_at', function({{crudName}} ${{crudNameSingularSnakeCase}}) {
+                return ${{crudNameSingularSnakeCase}}->created_at->formatLocalized('%e %B %Y');
+            })
+            ->addColumn('action', function ({{crudName}} ${{crudNameSingularSnakeCase}}) {
+                return
+                    '<div class="d-flex">' .
+                        $this->setAction(${{crudNameSingularSnakeCase}}, 'view', '{{crudNamePluralSnakeCase}}', false) .
+                        $this->setAction(${{crudNameSingularSnakeCase}}, 'update', '{{crudNamePluralSnakeCase}}') .
+                        $this->setAction(${{crudNameSingularSnakeCase}}, 'destroy', '{{crudNamePluralSnakeCase}}') .
+                    '</div>';
+            })
+            ->make(true);
+        }
+
+        // Set values.
+        $html = $builder
+                    ->addColumn([
+                        'data' => 'created_at',
+                        'title' => 'Aangemaakt op'
+                    ])
+                    ->addAction([
+                        'title' => 'Acties',
+                        'width' => '80px'
+                    ])
+                    ->parameters([
+                        'order' => [
+                            0,
+                            'asc'
+                        ]
+                    ]);
+
+        return view('admin.modules.{{crudNameSingularSnakeCase}}.index', compact('html'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(${{crudNameSingularSnakeCase}})
+    {
+        // Init view.
+        return view('admin.modules.{{crudNameSingularSnakeCase}}.show', compact('{{crudNameSingularSnakeCase}}'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  {{crudName}}Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        // Init view.
+        return view('admin.modules.{{crudNameSingularSnakeCase}}.createEdit');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  ${{crudNameSingularSnakeCase}}
+     * @return \Illuminate\Http\Response
+     */
+    public function store({{crudName}}Request $request)
+    {
+        // Unguard the values.
+        {{crudName}}::unguard();
+
+        // Post data to database.
+        ${{crudNameSingularSnakeCase}} = {{crudName}}::Create([
+
+        ] + $request->validated());
+
+        // Upload avatar.
+        $this->manageInputMedia(${{crudNameSingularSnakeCase}}, '{{crudNameSingularSnakeCase}}Image');
+
+        // Guard the values again.
+        {{crudName}}::reguard();
+
+        // Return back with message.
+        return redirect()->route('{{crudNameSingularSnakeCase}}.index')->with([
+                'type' => 'success',
+                'message' => '[ ... ] is met succes opgeslagen.'
+            ]
+        );
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  ${{crudNameSingularSnakeCase}}
+     * @return \Illuminate\Http\Response
+     */
+    public function edit({{crudName}} ${{crudNameSingularSnakeCase}})
+    {
+        // Init view.
+        return view('admin.modules.{{crudNameSingularSnakeCase}}.createEdit', compact('{{crudNameSingularSnakeCase}}'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  {{crudName}}Request  $request
+     * @param  int  ${{crudNameSingularSnakeCase}}
+     * @return \Illuminate\Http\Response
+     */
+    public function update({{crudName}}Request $request, {{crudName}} ${{crudNameSingularSnakeCase}})
+    {
+        // Unguard the values.
+        {{crudName}}::unguard();
+
+        // Set data to save into database.
+        ${{crudNameSingularSnakeCase}}->update([
+
+        ] + $request->validated());
+
+        // Only change avatar when there's a file uploaded.
+        if($request->exists('{{crudNameSingularSnakeCase}}ImageCurrentImage') && !$request->filled('{{crudNameSingularSnakeCase}}ImageCurrentImage'))
+            $player->clearMediaCollection('{{crudNameSingularSnakeCase}}Image');
+        elseif($request->hasFile('{{crudNameSingularSnakeCase}}Image'))
+            // Upload avatar.
+            $this->manageInputMedia($player, '{{crudNameSingularSnakeCase}}Image');
+
+        // Save data.
+        ${{crudNameSingularSnakeCase}}->save();
+
+        // Guard the values again.
+        {{crudName}}::reguard();
+
+        // Return back with message.
+        return redirect()->route('{{crudNameSingularSnakeCase}}.index')->with([
+                'type' => 'success',
+                'message' => '[ ... ] is met succes gewijzigd.'
+            ]
+        );
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  ${{crudNameSingularSnakeCase}}
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy({{crudName}} ${{crudNameSingularSnakeCase}})
+    {
+        // Delete the model.
+        ${{crudNameSingularSnakeCase}}->delete();
+
+        // Return back with message.
+        return redirect()->back()->with([
+            'type' => 'success',
+            'message' => '[ ... ] is met succes verwijderd.'
+        ]);
+    }
+}

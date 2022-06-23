@@ -1,0 +1,15 @@
+:root {
+
+}
+
+.dropify-container  {
+    .dropify-wrapper {
+        .dropify-message {
+            .file-icon {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+@section('meta')
+    <title>{{ config('app.name') }} | {{ (@${{crudNameSingularSnakeCase}} ? 'Wijzig [ ... ]' : '[ ... ]') }}</title>
+@endsection
+
+@push('styles')
+@endpush
+
+@push('js')
+@endpush
+
+<x-admin>
+
+    @include('admin.layouts.page-head', [
+        'title' => (@${{crudNameSingularSnakeCase}} ? 'Wijzig [ ... ]' : 'Nieuw [ ... ]'),
+        'breadcrum' => [
+            '[ ... ]' => url('admin/modules/{{crudNamePluralSnakeCase}}'),
+            (@${{crudNameSingularSnakeCase}} ? 'Wijzig [ ... ]: ' . ${{crudNameSingularSnakeCase}}->title : 'Nieuw [ ... ]') => '/'
+        ],
+    ])
+
+    <div class="{{ $cssNs }}">
+
+        @if ($errors->any())
+            <div class="alert alert-fill-danger alert-dismissible fade show" role="alert">
+                Er is iets fout gegaan met de validatie van de gegevens.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+        <form class="forms-sample" method="post" action="{{ (@${{crudNameSingularSnakeCase}} ? route('{{crudNameSingularSnakeCase}}.update', ${{crudNameSingularSnakeCase}}) : route('{{crudNameSingularSnakeCase}}.store')) }}" enctype="multipart/form-data">
+            @csrf
+            @if(@${{crudNameSingularSnakeCase}})
+                @method('PATCH')
+            @endif
+
+            <div class="row">
+
+                <div class="col-md-12 grid-margin stretch-card">
+
+                    <div class="card">
+
+                        <div class="card-body">
+
+                            <h6 class="card-title">{{crudName}}</h6>
+
+                            <x-form.input
+                                type="text"
+                                label="Titel"
+                                name="title"
+                                :value="(@${{crudNameSingularSnakeCase}} ? ${{crudNameSingularSnakeCase}}->title : old('title'))"
+                            />
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-submit">
+                <button type="submit" class="btn btn-primary">{{ (@${{crudNameSingularSnakeCase}} ? 'Wijzig' : 'Opslaan') }}</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</x-admin>

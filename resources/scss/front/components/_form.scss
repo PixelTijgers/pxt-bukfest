@@ -1,0 +1,66 @@
+@use '../abstracts' as a;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+:root {
+
+}
+
+form {
+    .input-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            color: var(--clr-primary-300);
+            margin-bottom: 6px;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 500;
+        }
+
+        input,
+        textarea {
+            @include hoverTransition(.25s, ease-in);
+
+            background: var(--clr-white-200);
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-size: 14px;
+            height: 45px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+
+            &:focus {
+                border-color: var(--clr-secondary-300);
+                box-shadow: rgba(37, 47, 63, 0.1) 0px 4px 10px 0px;
+            }
+
+            &.border-danger {
+                border-color: #F6404F !important;
+
+                &:focus {
+                    border-color: #F6404F !important
+                }
+            }
+        }
+
+        textarea {
+            height: 150px;
+            padding: 20px;
+            resize: none;
+        }
+    }
+
+    span {
+        color: #AAA;
+        font-size: 12px;
+        font-style: italic;
+        margin-bottom: 30px;
+    }
+
+    button {
+        max-width: 150px;
+        justify-content: center;
+    }
+}

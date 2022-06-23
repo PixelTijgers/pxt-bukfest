@@ -1,0 +1,24 @@
+<?php
+
+// Namespace
+namespace DummyNamespace;
+
+class DummyClass
+{
+    public static function getMacros(): array
+    {
+        return [
+
+            /*
+            * Here you can edit the description of the function.
+            *
+            * return mixed
+            */
+            'fooBar' => function($fooBar)
+            {
+                return $fooBar;
+            },
+
+        ];
+    }
+}

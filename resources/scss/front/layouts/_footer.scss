@@ -1,0 +1,117 @@
+@use '../abstracts' as a;
+@use '../abstracts/_media_queries' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+:root{
+    --hw-social: 35px;
+
+    --fs-base: 16px;
+
+    --tr-time: .15s;
+    --ts-ease: ease-in-out;
+}
+
+.front-layouts-Footer {
+    background: var(--clr-white-100);
+
+    .footer-top {
+        padding: 30px 0;
+
+        a.brand-logo {
+            figure {
+                img {
+                    height: 40px !important;
+                }
+            }
+        }
+
+        .social-media {
+            justify-content: flex-end;
+
+            li {
+                margin-left: 10px;
+
+                a {
+                    @include hoverTransition(var(--tr-time), var(--ts-ease));
+
+                    align-items: center;
+                    background: var(--clr-white-300);
+                    border-radius: 50%;
+                    color: var(--clr-white-100);
+                    display: flex;
+                    height: var(--hw-social);
+                    justify-content: center;
+                    width: var(--hw-social);
+
+                    &:hover {
+                        background: var(--clr-primary-300);
+                    }
+
+                    svg {
+                        @include hoverTransition(var(--tr-time), var(--ts-ease));
+
+                        color: var(--clr-white-100);
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        border-top: 1px solid var(--clr-grey-300);
+        padding: 40px 0;
+
+        nav {
+            ul {
+                display: flex;
+                flex-direction: column;
+
+                @include screen-size(lg) {
+                    flex-direction: row;
+                }
+
+                li {
+                    display: flex;
+                    line-height: 30px;
+
+                    @include screen-size(lg) {
+                        line-height: 100%;
+                        margin-right: 40px;
+                    }
+
+
+                    &:last-of-type {
+                        margin: 0;
+                    }
+
+                    a {
+                        @include hoverTransition(var(--tr-time), var(--ts-ease));
+
+                        color: var(--clr-white-300);
+                        font-size: var(--fs-base);
+
+                        &:hover {
+                            color: var(--clr-primary-300);
+                        }
+                    }
+                }
+            }
+        }
+
+        p {
+            color: var(--clr-white-300);
+            letter-spacing: .005rem;
+            line-height: 30px;
+            font-size: 16px;
+            text-align: left;
+
+            @include screen-size(lg) {
+                font-size: 14px;
+                line-height: 100%;
+                text-align: right;
+            }
+        }
+    }
+}

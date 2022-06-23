@@ -1,0 +1,12 @@
+common.View.create('{{namespace}}', {
+
+    onDOMLoad()
+    {
+        this.initTest();
+    },
+
+    initTest() {
+        console.log('Init: {{namespace}}');
+    }
+
+})

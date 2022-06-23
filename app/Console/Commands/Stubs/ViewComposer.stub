@@ -1,0 +1,17 @@
+<?php
+
+// Namespacing.
+namespace App\Http\ViewComposers;
+
+// Facades.
+use Illuminate\View\View;
+use Illuminate\View\Engines\CompilerEngine;
+
+use App\Repositories\UserRepository;
+
+class DummyClass
+{
+    public function compose(View $view)
+    {
+    }
+}

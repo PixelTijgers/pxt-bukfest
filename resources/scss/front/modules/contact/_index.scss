@@ -1,0 +1,28 @@
+@use '../../abstracts' as a;
+@use '../../abstracts/_media_queries' as *;
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/variables' as *;
+
+:root {
+
+}
+
+.front-modules-contact-Index {
+    #map {
+      height: 300px;
+      width: 100%;
+
+        @include screen-size(lg) {
+          height: 450px;
+        }
+    }
+
+    .contact-container {
+        background: var(--clr-white-100);
+        padding-top: 35px;
+
+        @include screen-size(lg) {
+          padding-top: 80px;
+        }
+    }
+}

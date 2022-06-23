@@ -1,0 +1,27 @@
+<?php
+// Namespacing.
+namespace Database\Seeders;
+
+// Facades.
+use Illuminate\Database\Seeder;
+
+// Models.
+use App\Models\{{crudName}};
+
+class {{crudName}}Seeder extends Seeder
+{
+    /**
+     * Run the database seed.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        ${{crudNameLowerPlural}} = [
+
+        ];
+
+        foreach(${{crudNameLowerPlural}} as ${{crudNameLower}})
+            {{crudName}}::create(${{crudNameLower}});
+    }
+}

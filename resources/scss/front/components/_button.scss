@@ -1,0 +1,35 @@
+@use '../abstracts' as a;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+:root{
+    --tr-time: .15s;
+    --ts-ease: ease-in;
+}
+
+.btn {
+    @include hoverTransition(var(--tr-time), var(--ts-ease));
+
+    background: var(--clr-secondary-300) !important;
+    border: 2px solid transparent;
+    border-radius: 500px;
+    color: var(--clr-white-100);
+    display: inline-flex;
+    font-family: var(--ff-fbase);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    padding: 10px 30px;
+
+    svg {
+        margin: 6px 0 0 8px;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: var(--clr-primary-300);
+        box-shadow: inset 10em 0 0 0 var(--clr-primary-300);
+        color: var(--clr-white-100);
+        cursor: pointer;
+    }
+}
