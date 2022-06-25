@@ -16,7 +16,7 @@ return [
     'is_intranet' => false,
 
     // Is app under development?
-    'under_development' => true,
+    'under_development' => false,
 
     // Supported languages (for ML use.)
     'app_locales' => [
