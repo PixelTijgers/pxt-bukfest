@@ -30,7 +30,7 @@
 
             <h1 class="text-4xl">Bukfest</h1>
             <h3>9-10-11 juni 2023</h3>
-            <h4>Aarslaar - Kontich - Reetie</h4>
+            <h4>Aartselaar - Kontich - Retie</h4>
 
             <h5>First names to be announced soon!</h5>
 
