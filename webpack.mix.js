@@ -30,7 +30,7 @@ const ResourceMix = require('./resources/js/common/ResourceMix.js');
         .init(mix)
         .nodeModuleDists([
             // Scripts
-            //'@fortawesome/fontawesome-pro/js/all.min.js',
+            '@fortawesome/fontawesome-pro/js/all.min.js',
             '@popperjs/core/dist/umd/popper.js',
             'apexcharts/dist/apexcharts.min.js',
             'bootstrap/dist/js/bootstrap.bundle.min.js',
